@@ -2,6 +2,41 @@
 
 a [Sails v1](https://sailsjs.com) application
 
+# Setup
+Install Sails.js (it's to Node.js ...): sudo npm install sails -g
+Create the application: sails new messageApp && cd messageApp
+Create the message api: sails generate api message
+Launch the application: sails lift
+
+# Tests
+Create new messages
+
+curl -XPOST http://localhost:1337/message?text=hello
+curl -XPOST http://localhost:1337/message?text=hola
+Get list of messages
+
+curl http://localhost:1337/message
+
+[
+ {
+   "text": "hello",
+   "createdAt": "2015-11-08T13:15:15.363Z",
+   "updatedAt": "2015-11-08T13:15:15.363Z",
+   "id": "5638b363c5cd0825511690bd"
+ },
+ {
+   "text": "hola",
+   "createdAt": "2015-11-08T13:15:45.774Z",
+   "updatedAt": "2015-11-08T13:15:45.774Z",
+   "id": "5638b381c5cd0825511690be"
+ }
+]
+Modify a message
+
+curl -XPUT http://localhost:1337/message/5638b363c5cd0825511690bd?text=hey
+Delete a message
+
+curl -XDELETE http://localhost:1337/message/5638b381c5cd0825511690be
 
 ### Links
 
